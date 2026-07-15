@@ -352,7 +352,7 @@
 
 </div>
 
-<script src="./vendor/ort.min.js"></script>
+<script src="./vendor/ort.min.js?v=1.17.3"></script>
 <script>
   /* ── i18n ── */
   const LANG_KEY = 'emotionai_lang';
@@ -451,6 +451,7 @@
     if (!modelSession) {
       ort.env.wasm.wasmPaths = './vendor/';
       ort.env.wasm.numThreads = 1;
+      ort.env.wasm.proxy = false;
       modelSession = await ort.InferenceSession.create('./models/emotion.onnx', {
         executionProviders: ['wasm'],
       });
